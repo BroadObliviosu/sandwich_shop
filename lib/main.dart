@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(const App());
@@ -27,7 +28,7 @@ class OrderItemsDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('this is a placeholder for OrderItemsDisplay');
+    return Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}');
   }
 }
 
