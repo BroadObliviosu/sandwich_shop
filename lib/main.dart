@@ -11,37 +11,55 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Southsea Shop App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('My Sandwich Counter'),
-          backgroundColor: Colors.orange,
-        ),
+      home: OrderScreen(maxQuantity: 5),
+    );
+  }
+}
 
-        body: Column(mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          OrderItemDisplay(5, 'Footlong'),
-           Row(
+class OrderScreen extends StatefulWidget {
+  final int maxQuantity;
+
+  OrderScreen({super.key, this.maxQuantity = 10});
+
+  @override
+  State<OrderScreen> createState() => _OrderScreenState();
+}
+
+class _OrderScreenState extends State<OrderScreen> {
+  int _quantity = 0;
+
+  @override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: const Text('Sandwich Counter'),
+    ),
+    body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          OrderItemDisplay(
+            _quantity,
+            'Footlong',
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed:  () =>print('Add button pressed!'), 
+                onPressed: () => print('Add button pressed!'),
                 child: const Text('Add'),
               ),
-              // const SizedBox(width: 16),
               ElevatedButton(
-                onPressed: () => print('remove button pressed!'), 
+                onPressed: () => print('Remove button pressed!'),
                 child: const Text('Remove'),
-
-            
-           )],
-
-
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {},
-        //   child: const Icon(Icons.add)
-        ),
-      ]),
-    ));
-  }
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
 }
 
 class OrderItemDisplay extends StatelessWidget {
