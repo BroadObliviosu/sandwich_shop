@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(const App());
@@ -13,9 +12,15 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Southsea Shop App',
       home: Scaffold(
-        appBar: AppBar(title: const Text('Sandwich Counter')),
-        body: const Center(
-          child: OrderItemDisplay(5, 'Footlong'),
+        appBar: AppBar(
+          title: const Text('My Sandwich Counter'),
+          backgroundColor: Colors.orange,
+        ),
+
+        body: const Center(child: OrderItemDisplay(5, 'Footlong')),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add)
         ),
       ),
     );
@@ -33,8 +38,6 @@ class OrderItemDisplay extends StatelessWidget {
     return Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}');
   }
 }
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
