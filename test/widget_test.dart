@@ -35,5 +35,22 @@ void main() {
     });
   });
 
+  group('App smoke tests', () {
+    testWidgets('App displays MenuScreen as home', (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      expect(find.byType(MenuScreen), findsOneWidget);
+      expect(find.text('Sandwich Menu'), findsOneWidget);
+    });
+
+    testWidgets('Displays sandwich cards with names and prices',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      expect(find.text('Footlong Sub'), findsOneWidget);
+      expect(find.text('£7.50'), findsOneWidget);
+      expect(find.text('Six-Inch Sub'), findsOneWidget);
+      expect(find.text('£4.50'), findsOneWidget);
+      expect(find.text('Order'), findsNWidgets(2));
+    });
+  });
   
 }
