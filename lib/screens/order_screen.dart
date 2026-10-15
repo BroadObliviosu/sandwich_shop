@@ -19,14 +19,12 @@ class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Order ${widget.sandwich.name}'),
-      ),
+      appBar: AppBar(title: Text('Order ${widget.sandwich.name}')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            OrderItemDisplay(quantity: _quantity, itemType: 'Footlong'),
+            OrderItemDisplay(_quantity, 'Footlong'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -65,14 +63,11 @@ class OrderItemDisplay extends StatelessWidget {
   final int quantity;
   final String itemType;
 
-  const OrderItemDisplay({
-    super.key,
-    required this.quantity,
-    required this.itemType,
-  });
+  const OrderItemDisplay(this.quantity, this.itemType, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Text('$quantity $itemType sandwich(es)');
+return Text(
+  '$quantity $itemType sandwich(es): ${List.filled(quantity, '🥪').join()}',);
   }
 }
