@@ -9,14 +9,14 @@ class SandwichRepository {
         description:
             'A delicious footlong sandwich with your choice of fillings.',
         price: 7.50,
-        imagePath: 'assets/images/footlong.png',
+        imagePath: 'assets/images/footlong1.jpeg',
       ),
       Sandwich(
         id: 'six-inch',
         name: 'Six-inch sub',
         description: 'A tasty six-inch sandwich with your choice of fillings.',
         price: 4.50,
-        imagePath: 'assets/images/six-inch.png',
+        imagePath: 'assets/images/six_inch1.jpeg',
       ),
     ];
   }
