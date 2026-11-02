@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/sandwich.dart';
 import 'package:flutter_app/widgets/primary_button.dart';
+import 'package:flutter_app/screens/order_screen.dart';
 
 class SandwichCard extends StatelessWidget {
   final Sandwich sandwich;
@@ -10,7 +12,10 @@ class SandwichCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      margin: const EdgeInsets.symmetric(
+        horizontal: 16.0,
+        vertical: 8.0,
+      ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -40,7 +45,9 @@ class SandwichCard extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         sandwich.description,
-                        style: const TextStyle(color: Colors.black54),
+                        style: const TextStyle(
+                          color: Colors.black54,
+                        ),
                       ),
                     ],
                   ),
@@ -56,14 +63,23 @@ class SandwichCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                  )
-    
+                  ),
                 ),
                 PrimaryButton(
                   label: 'Order',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OrderScreen(
+                          sandwich: sandwich,
+                        ),
+                      ),
+                    );
+                  },
                   child: const Text('Order'),
                 ),
+                
               ],
             ),
           ],

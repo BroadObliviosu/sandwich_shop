@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/sandwich.dart';
+import 'package:flutter_app/constants.dart';
+import 'package:flutter_app/widgets/basket_button.dart';
 
 class OrderScreen extends StatefulWidget {
   final Sandwich sandwich;
@@ -19,7 +21,10 @@ class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Order ${widget.sandwich.name}')),
+      appBar: AppBar(
+        title: const Text(appTitle, style: shopHeaderStyle),
+        actions: const [BasketButton()],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
