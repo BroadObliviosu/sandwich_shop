@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/sandwich.dart';
+import 'package:flutter_app/widgets/primary_button.dart';
 
 class SandwichCard extends StatelessWidget {
   final Sandwich sandwich;
@@ -58,7 +59,8 @@ class SandwichCard extends StatelessWidget {
                   )
     
                 ),
-                ElevatedButton(
+                PrimaryButton(
+                  label: 'Order',
                   onPressed: () {},
                   child: const Text('Order'),
                 ),
