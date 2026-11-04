@@ -11,4 +11,7 @@ class CartItem {
 
   double get linetotal{
     return sandwich.price * quantity;}
+
+  double get lineTotal => sandwich.price * quantity;
+  
 }

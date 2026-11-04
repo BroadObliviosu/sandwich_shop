@@ -5,12 +5,14 @@ import 'package:flutter_app/screens/menu_screen.dart';
 import 'package:flutter_app/widgets/sandwich_card.dart';
 
 void main() {
-  testWidgets('MenuScreen shows the sandwich list and a basket button', (
+  testWidgets(
+    'MenuScreen shows the sandwich list and a basket button', (
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(const MaterialApp(home: MenuScreen()));
 
     expect(find.byType(SandwichCard), findsWidgets);
+    expect(find.byIcon(Icons.shopping_basket), findsOneWidget);
     expect(find.byIcon(Icons.shopping_basket), findsOneWidget);
   });
 
